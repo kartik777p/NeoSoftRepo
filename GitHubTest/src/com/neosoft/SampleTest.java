@@ -7,7 +7,7 @@ public class SampleTest {
 		
 		System.out.println("hiiii ");
 		if(s1.equalsIgnoreCase("se")) {
-			System.out.println(" your a Soft Engg");
+			System.out.println("  your a Soft Engg");
 		}
 		else
 			System.out.println("not a  Soft Eng");
