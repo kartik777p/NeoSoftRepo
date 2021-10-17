@@ -90,7 +90,7 @@ public class BankAccount implements Serializable {
 		return amt;
 	}
 	public void setAmt(float amt) {
-		this.amt = amt;
+		this.amt+= amt;
 	}
 	public String getType() {
 		return type;

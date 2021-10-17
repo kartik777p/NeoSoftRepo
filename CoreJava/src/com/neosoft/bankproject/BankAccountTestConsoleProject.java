@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class BankAccountTestConsoleProject {
 
-	// showf menus 
+	// shows menus 
 	public void ShowMenus() {
 		ArrayList<BankAccount> accounts=CreateAccount.getAccounts();
 		Scanner sc=null;
@@ -22,12 +22,14 @@ public class BankAccountTestConsoleProject {
 		System.out.println();
 
 		System.out.println("1. Register Account");
-		System.out.println("2. Login");
+		System.out.println("2.User  Login");
 		System.out.println("3. Update accounts");
-		System.out.println("4. Transfer money");
-		System.out.println("5. See Lists of accounts ");
+		System.out.println("4. Deposit Money ");
 		
-		System.out.println("6. Exit");
+		System.out.println("5. Transfer money");
+		System.out.println("6. See Lists of accounts ");
+		System.out.println("7.Search  user/Acoount ");
+		System.out.println("8. Exit");
 		System.out.println();
 		//get  user choise and show option for their choise
       System.out.println("Enter Your Choise Number");
@@ -42,12 +44,20 @@ public class BankAccountTestConsoleProject {
       //update account
       case 3:new UpdateUser().update();
                       break;
-                      //tranfer money 
-      case 4:new TransferMoney().tranferMoney();
+                      //Deposit money 
+         case 4:new DipositMoney().depositMoney();
+                      break;
+                      //transfer money 
+      case 5:new TransferMoney().tranferMoney();
                    break;
-      case 5:acc.showAccount();
+                   //show all accounts
+      case 6:acc.showAccount();
                    break;
-      case 6: System.out.println("Thank you for Utilizing our Service ");
+                   //search user/Account
+      case 7:new FindCustomerByUsingFirstCharsOfHisName().findUserByItsfirstChars();
+                    break;
+             //exit 
+      case 8: System.out.println("Thank you for Utilizing our Service ");
       					break;
       }//switch
       System.out.println();
@@ -75,5 +85,7 @@ public class BankAccountTestConsoleProject {
 			//now show bankMenu to EndUser
 			test=new BankAccountTestConsoleProject();
 		     test.ShowMenus();
+		     //close Sc here
+		     sc.close();
 	}//main
 }//class

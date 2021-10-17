@@ -26,7 +26,9 @@ public class CreateAccount implements Serializable {
 
 		// now gather values from end usr
 		sc = new Scanner(System.in); 
+		System.out.println("-------------------------------------------------------------------------------------------------------");
 		System.out.println("------------Create Account Page ------------");
+		System.out.println("----------------------------------------------------------------------------------------------------------");
 		System.out.println("Enter Account Number  of the Customer :- ");
 		accNo=sc.next();
 		System.out.println("Enter Name of the Customer :- ");
@@ -49,7 +51,7 @@ public class CreateAccount implements Serializable {
 		}
 		System.out.println("Enter Initial deposit amount of the Customer :- ");
 		initDep=sc.nextFloat();
-		System.out.println("Enter type of th count for  the Customer :-");
+		System.out.println("Enter type of th Acount for  the Customer :-");
 		type=sc.next();
 		//store that values to to Bankaccount class
 		acc=new BankAccount(accNo,name, addrs, mono, uname, pass, initDep, type);
@@ -83,13 +85,15 @@ public class CreateAccount implements Serializable {
 	}//method   
  //display accounts lists
 	public void showAccount() {
-		int size=0;
-		System.out.println("CreateAccount.showAccount()");
+	int size=0;
+	System.out.println("--------------------------------------------------------------------");
+	System.out.println("Show Lists Of Accounts ");
+	System.out.println("--------------------------------------------------------------------");
 		    size=accounts.size();
 		    if(size!=0) {
 		     for(BankAccount acc: accounts) {   
 		    	System.out.println("\t The account details for the customer "+acc.getName().toUpperCase()+" is :- ");
-		    	System.out.println("----------------------------------------------------------------------------------------------------------------------");
+		    	System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		    	System.out.println("\t Account Number :-  \t\t\t\t"+acc.getAccNumber());
 		    	 System.out.println("\t Name :- \t\t\t\t "+acc.getName());
 		    	 System.out.println("\t Adress :- \t\t\t \t"+acc.getAdd());
@@ -98,7 +102,7 @@ public class CreateAccount implements Serializable {
 		    	 System.out.println("\t Password :-  \t\t\t\t"+acc.getPwd());
 		    	 System.out.println("\t Amount :-  \t\t\t\t"+acc.getAmt());
 		    	 System.out.println("\t Account Type :- \t\t \t\t"+acc.getType());
-		    	 System.out.println("-----------------------------------------");
+		    	 System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		     }//for
 		    }//if
 		    else {
