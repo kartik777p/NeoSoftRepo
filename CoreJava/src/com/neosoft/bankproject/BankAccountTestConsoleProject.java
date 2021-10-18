@@ -54,7 +54,7 @@ public class BankAccountTestConsoleProject {
       case 6:acc.showAccount();
                    break;
                    //search user/Account
-      case 7:new FindCustomerByUsingFirstCharsOfHisName().findUserByItsfirstChars();
+      case 7:new FindAccountsAndUserDetails().ShowSearchMenus();
                     break;
              //exit 
       case 8: System.out.println("Thank you for Utilizing our Service ");

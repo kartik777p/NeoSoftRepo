@@ -89,9 +89,17 @@ public class BankAccount implements Serializable {
 	public float getAmt() {
 		return amt;
 	}
-	public void setAmt(float amt) {
-		this.amt+= amt;
-	}
+	public void setAmt(float amt,String str) {
+		if(str.equalsIgnoreCase("depo")) {
+			this.amt+= amt;
+		}//if
+		else if(str.equalsIgnoreCase("with")){
+			this.amt=amt;
+		}else {
+			this.amt+= amt;
+		}//else
+	}//setamt
+	
 	public String getType() {
 		return type;
 	}
