@@ -9,6 +9,7 @@ public class DipositMoney {
 	private static ArrayList<BankAccount> accounts=CreateAccount.getAccounts(); 
 	public void depositMoney() {
 		    Scanner sc=null;
+		    boolean flag=false;
 		    String desc=null;
 		    float amt=0.0f;
 		      sc=new Scanner(System.in);

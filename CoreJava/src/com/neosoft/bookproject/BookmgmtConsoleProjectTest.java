@@ -31,7 +31,7 @@ public class BookmgmtConsoleProjectTest {
 				            break;
 				case 3: new UpdateBook().updateBook();
 				            break;
-				case 4:new AddBook().deleteBook();
+				case 4:new DeleteBook().deleteBook();
 				           break;
 				case 5:new ShowAllBooks().showAllBooks();
 				         break;

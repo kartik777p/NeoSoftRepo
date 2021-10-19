@@ -64,6 +64,7 @@ public class FindAccountsAndUserDetails {
     /************************************************FIND USER BY ITS INITIAL CHARECTERS  ***********************************************************************************/
 	public void findUserByItsfirstChars() {
 		Scanner sc = null;
+		boolean flag=false;
 		String inichar = null;
 		sc = new Scanner(System.in);
 		System.out.println("Enter initial Chars  One/More :- ");
@@ -83,26 +84,28 @@ public class FindAccountsAndUserDetails {
    		    	 System.out.println("\t Account Type :- \t\t \t\t"+bnk.getType());
    		    	 System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------");
         	   }//if
-        	   else {
-        		   try {
-        		   throw new UserNotFoundException("No User found Having This chars as Initial Chars ");
-        		   }//try
-        		   catch (UserNotFoundException unfe) {
-        			   unfe.printStackTrace();
-				}//catch
-        	   }//else
            }//for
+           if(flag==false){
+       		 try {
+     			 throw new UserNotFoundException("User not Found to SearchBy its Initial Chars ");
+     		 }catch (UserNotFoundException unfe) {
+     			 unfe.printStackTrace();
+  			}//catch
+       		 }//if
 	}// findUserByItsfirstChars
 	
     /************************************************SEARCH BY NAME***********************************************************************************/
     public void searchByName() {
     	 Scanner sc=null;
          String uName=null;
+         boolean flag=false;
          sc=new Scanner(System.in);
          System.out.println("Enter Customer Name ");
          uName=sc.next();
          for(BankAccount bkacc:accounts) {
          	  if(bkacc.getName().startsWith(uName)) {
+         		  //make flag as true
+         		  flag=true;
          		System.out.println("\t The account details for the customer "+bkacc.getName().toUpperCase()+" is :- ");
 		    	System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		    	System.out.println("\t Account Number :-  \t\t\t\t"+bkacc.getAccNumber());
@@ -115,24 +118,27 @@ public class FindAccountsAndUserDetails {
 		    	 System.out.println("\t Account Type :- \t\t \t\t"+bkacc.getType());
 		    	 System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------");
          	  }//if
-         	  else {
-         		 try {
-       			 throw new UserNotFoundException("User not Found to SearchBy Name");
-       		 }catch (UserNotFoundException unfe) {
-       			 unfe.printStackTrace();
-				}//catch
-         		 }//else
          }//for
+       if(flag==false){
+     		 try {
+   			 throw new UserNotFoundException("User not Found to SearchBy Name");
+   		 }catch (UserNotFoundException unfe) {
+   			 unfe.printStackTrace();
+			}//catch
+     		 }//if
     }//searchByName
     /************************************************SEARCH BY MOBILENUMBER***********************************************************************************/
     public void searchByMobileNumber() {
     	 Scanner sc=null;
+    	 boolean flag=false;
          String mobileNumber=null;
          sc=new Scanner(System.in);
          System.out.println("Enter Customer Mobile Number  ");
          mobileNumber=sc.next();
          for(BankAccount bkacc:accounts) {
          	  if(bkacc.getCno().startsWith(mobileNumber)) {
+         		  //make flag as true
+         		  flag=true;
          		System.out.println("\t The account details for the customer "+bkacc.getName().toUpperCase()+" is :- ");
 		    	System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		    	System.out.println("\t Account Number :-  \t\t\t\t"+bkacc.getAccNumber());
@@ -145,24 +151,27 @@ public class FindAccountsAndUserDetails {
 		    	 System.out.println("\t Account Type :- \t\t \t\t"+bkacc.getType());
 		    	 System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------");
          	  }//if
-         	  else {
-         		 try {
-       			 throw new UserNotFoundException("No Record Found For The Given Mobile Number");
-       		 }catch (UserNotFoundException unfe) {
-       			 unfe.printStackTrace();
-				}//catch
-         		 }//else
          }//for
+         if(flag==false){
+       		 try {
+     			 throw new UserNotFoundException("User not Found to SearchBy its Mobile Number ");
+     		 }catch (UserNotFoundException unfe) {
+     			 unfe.printStackTrace();
+  			}//catch
+       		 }//if
     }//searchByMobileNumber
     /************************************************SEARCH BY USERNAME***********************************************************************************/
     public void searchByUserName() {
     	Scanner sc=null;
+    	 boolean flag=false;
         String userName=null;
         sc=new Scanner(System.in);
         System.out.println("Enter Customer Username  ");
         userName=sc.next();
         for(BankAccount bkacc:accounts) {
         	  if(bkacc.getUname().startsWith(userName)) {
+        		  //make flag as true
+         		  flag=true;
         		System.out.println("\t The account details for the customer "+bkacc.getName().toUpperCase()+" is :- ");
 		    	System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		    	System.out.println("\t Account Number :-  \t\t\t\t"+bkacc.getAccNumber());
@@ -175,24 +184,27 @@ public class FindAccountsAndUserDetails {
 		    	 System.out.println("\t Account Type :- \t\t \t\t"+bkacc.getType());
 		    	 System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------");
         	  }//if
-        	  else {
-        		 try {
-      			 throw new UserNotFoundException("No Record Found For The Given USERNAME");
-      		 }catch (UserNotFoundException unfe) {
-      			 unfe.printStackTrace();
-				}//catch
-        		 }//else
         }//for
+        if(flag==false){
+      		 try {
+    			 throw new UserNotFoundException("User not Found to SearchBy its UserName ");
+    		 }catch (UserNotFoundException unfe) {
+    			 unfe.printStackTrace();
+ 			}//catch
+      		 }//if
     }//searchByUserName
     /************************************************SEARCH BY ACCOUNT TYPE ***********************************************************************************/
     public void searchByAccountType() {
     	Scanner sc=null;
+    	 boolean flag=false;
         String accType=null;
         sc=new Scanner(System.in);
         System.out.println("Enter Customer Account Type   ");
         accType=sc.next();
         for(BankAccount bkacc:accounts) {
         	  if(bkacc.getType().startsWith(accType)) {
+        		  //make flag as true
+         		  flag=true;
         		System.out.println("\t The account details for the customer "+bkacc.getName().toUpperCase()+" is :- ");
 		    	System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		    	System.out.println("\t Account Number :-  \t\t\t\t"+bkacc.getAccNumber());
@@ -205,24 +217,27 @@ public class FindAccountsAndUserDetails {
 		    	 System.out.println("\t Account Type :- \t\t \t\t"+bkacc.getType());
 		    	 System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------");
         	  }//if
-        	  else {
-        		 try {
-      			 throw new UserNotFoundException("No Record Found For The Given AccountType ");
-      		 }catch (UserNotFoundException unfe) {
-      			 unfe.printStackTrace();
-				}//catch
-        		 }//else
         }//for
+        if(flag==false){
+      		 try {
+    			 throw new UserNotFoundException("User not Found to SearchBy Account Type  ");
+    		 }catch (UserNotFoundException unfe) {
+    			 unfe.printStackTrace();
+ 			}//catch
+      		 }//if
     }//searchByAccountType
     /************************************************SEARCH BY ACCOUNT ADDRESS  ***********************************************************************************/
     public void searchByAddress() {
     	Scanner sc=null;
+    	boolean flag=false;
         String addrs=null;
         sc=new Scanner(System.in);
         System.out.println("Enter Customer Address   ");
         addrs=sc.next();
         for(BankAccount bkacc:accounts) {
         	  if(bkacc.getAdd().startsWith(addrs)) {
+        		  //make flag as true
+         		  flag=true;
         		System.out.println("\t The account details for the customer "+bkacc.getName().toUpperCase()+" is :- ");
 		    	System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		    	System.out.println("\t Account Number :-  \t\t\t\t"+bkacc.getAccNumber());
@@ -235,13 +250,13 @@ public class FindAccountsAndUserDetails {
 		    	 System.out.println("\t Account Type :- \t\t \t\t"+bkacc.getType());
 		    	 System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------");
         	  }//if
-        	  else {
-        		 try {
-      			 throw new UserNotFoundException("No Record Found For The Given Address ");
-      		 }catch (UserNotFoundException unfe) {
-      			 unfe.printStackTrace();
-				}//catch
-        		 }//else
         }//for
+        if(flag==false){
+      		 try {
+    			 throw new UserNotFoundException("User not Found to SearchBy Customer Address s ");
+    		 }catch (UserNotFoundException unfe) {
+    			 unfe.printStackTrace();
+ 			}//catch
+      		 }//if
     }//searchByAccountType
 }// class
