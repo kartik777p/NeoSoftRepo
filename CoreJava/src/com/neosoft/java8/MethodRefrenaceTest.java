@@ -1,5 +1,7 @@
 package com.neosoft.java8;
 
+import java.util.List;
+
 //functional interface
 @FunctionalInterface
 interface Showable{
@@ -52,6 +54,12 @@ public class MethodRefrenaceTest {
        //predifened class ref
        new Thread(new MethodRefrenaceTest()::showtext2).start();    //non static method ref
        System.out.println();
+       
+       //out::print non-static ref
+       //List<Integer> num=
+       
+       
+       
       
        /*******************************Constuctor refrence***********************************************************/
        Showable1 s3=MethodRefrenaceTest::new;     //cons Refrence        s3 has cons logic now

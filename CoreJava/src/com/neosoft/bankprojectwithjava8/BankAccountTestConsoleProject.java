@@ -1,0 +1,91 @@
+package com.neosoft.bankprojectwithjava8;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class BankAccountTestConsoleProject {
+
+	// shows menus 
+	public void ShowMenus() {
+		ArrayList<BankAccount> accounts=CreateAccountImplWithLambda.getAccounts();
+		Scanner sc=null;
+		int choiseNo=0;
+		CreateAccountImplWithLambda acc=new CreateAccountImplWithLambda();
+		String status=null;
+		//show menu
+	     sc = new Scanner(System.in);
+	     do {
+	    	 System.out.println();
+		System.out.println("-----------------------------");
+		System.out.println("BANK   OF  "+BankAccount.getBankName().toUpperCase()); //convert bank name to uppercase 
+		System.out.println("-----------------------------");
+		System.out.println();
+
+		System.out.println("1. Register Account");
+		System.out.println("2.User  Login");
+		System.out.println("3. Update accounts");
+		System.out.println("4. Deposit Money ");
+		
+		System.out.println("5. Transfer money");
+		System.out.println("6. See Lists of accounts ");
+		System.out.println("7.Search  user/Acoount ");
+		System.out.println("8. Exit");
+		System.out.println();
+		//get  user choise and show option for their choise
+      System.out.println("Enter Your Choise Number");
+      choiseNo=sc.nextInt();
+      switch(choiseNo){   
+      //create Account
+      case 1: new CreateAccountImplWithLambda().createAccount();      //done
+                 break;
+      //login
+     case 2:new UserLoginWithNonStaticMethRef().login();            //done
+                 break; 
+      //update account
+     case 3:new UpdateUserImplWithLambda().update();
+                   break;
+                      //Deposit money 
+        case 4:new DepositMoneyImplWithMethodRef().depositMoney();       //done
+                      break;
+                      //transfer money 
+      case 5:new TransferMoneyImplWithmethodRef().tranferMoney();   //done
+                   break;
+                   //show all accounts
+      case 6:new ShowAllUsers().showAccount();                     //done
+                   break;
+                  // Search user/Account
+      case 7:new SearchAccountOrUserImpl().ShowSearchMenus();
+                    break;
+             //exit 
+      case 8: System.out.println("Thank you for Utilizing our Service ");
+      					break;
+      }//switch
+      System.out.println();
+      System.out.println("Do you want to Continue - ");
+       System.out.println("Say Yes/No");
+       status=sc.next(); 
+       if(status.equalsIgnoreCase("no")) {
+    	   System.out.println("Thanks For Takking our Service ");
+       }
+	 }while(status.equalsIgnoreCase("yes"));
+	}//method
+
+	public static void main(String[] args) {
+		Scanner sc = null;
+		String bName = null;
+		BankAccountTestConsoleProject test=null;
+		
+		// create scanner
+			sc = new Scanner(System.in);
+			// get bankName from user
+			System.out.println("Enter Bank Name :- ");
+			bName=sc.next();
+			//set Name to  BankAccount
+			BankAccount.setBankName(bName);
+			//now show bankMenu to EndUser
+			test=new BankAccountTestConsoleProject();
+		     test.ShowMenus();
+		     //close Sc here
+		     sc.close();
+	}//main
+}//class

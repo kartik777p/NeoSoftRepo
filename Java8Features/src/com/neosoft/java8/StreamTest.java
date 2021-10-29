@@ -52,6 +52,41 @@ public class StreamTest {
 		System.out.println(mobileMap);
 		/*Map<Integer,String> mobileMap1=mobiles.stream().filter(mobile -> mobile.price>14000).collect(Collectors.toMap(mobile -> mobile.id, mobile->mobile.name));
 		System.out.println(mobileMap1);   */
+		
+		//using method ref
+		//List<Phone> phones=
 	}
 
+}
+
+
+class Phone{
+	int id;
+	String name;
+	double price;
+	//cons
+	public Phone(int id, String name, double price) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
 }

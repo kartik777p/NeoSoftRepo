@@ -6,9 +6,9 @@ public class S17_ObjectCloning {
 		Pulsar Pulsar1 = new Pulsar("Petrol",2,"Red");
 		Pulsar Pulsar2 = (Pulsar) Pulsar1.clone();
 		Pulsar Pulsar3 = (Pulsar) Pulsar2.clone();
-		Pulsar Pulsar4 = (Pulsar) Pulsar2.clone();
-		Pulsar Pulsar5 = (Pulsar) Pulsar2.clone();
-		Pulsar iphone = (Pulsar) Pulsar2.clone();
+		//Pulsar Pulsar4 = (Pulsar) Pulsar2.clone();
+		//Pulsar Pulsar5 = (Pulsar) Pulsar2.clone();
+		//Pulsar iphone = (Pulsar) Pulsar2.clone();
 
 		System.out.println("---------Pulsar2---------");
 		System.out.println("Pulsar Fuel : "+Pulsar2.fuelType);
@@ -19,8 +19,8 @@ public class S17_ObjectCloning {
 		System.out.println("Pulsar Fuel : "+Pulsar3.fuelType);
 		System.out.println("Pulsar Color : "+Pulsar3.Color);
 		System.out.println("No. of Tyres : "+Pulsar3.Tyres);
-	}
-}
+	}//main
+}//class
 
 class Pulsar implements Cloneable {
 	String fuelType;
@@ -33,10 +33,8 @@ class Pulsar implements Cloneable {
 		this.Tyres = Tyres;
 		this.Color = Color;
 	}
-
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
 		return super.clone();
 	}
 }
