@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Return Car</title>
+<link rel="icon" href="/Images/logo.png">
+<link rel="stylesheet" href="css/formstyle.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+	integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="css/styles.css">
+<style type="text/css">
+body {
+	background-image: url("./Images/PngItem_6.png");
+}
+</style>
+</head>
+<body>
+
+	<div style="background-color: black; width: 100%;">
+		<nav class="navbar1">
+			<div class="leftNav">
+				<a href="index.html" style="margin-left: 20px;"><img
+					src="Images/logo.jpg" style="border-radius: 50%;" width="50px"
+					height="50px" alt=""></a>
+			</div>
+
+			<div class="rightNav">
+				<ul class="nav1">
+					<li><a href="/SellerHome">Home</a></li>
+					<li><a href="/AddCar">Add Car</a></li>
+					<li><a href="/ViewCar">View car</a></li>
+					<li><a href="/ProvideCar">Provide Car</a></li>
+					<li><a href="/ViewProvidedCar">View Provided Car</a></li>
+					<li><a href="/ReturnCar">Return Car</a></li>
+					<li><a href="/SellerLogout">Logout</a></li>
+				</ul>
+
+			</div>
+		</nav>
+		<hr style="box-shadow: 2px 2px 10px black; background-color: white;" />
+	</div>
+	<div th:if="${session.savecar}">
+		<div style="text-align: center; color: green; font-weight:bolder; font-size: 25px;"
+			th:text="${session.savecar}"></div>
+		<th:block th:text="${#session.removeAttribute('savecar')}"></th:block>
+	</div>
+	<div th:if="${session.savecarerror}">
+		<div style="text-align: center; color: red; font-weight:bolder; font-size: 25px;"
+			th:text="${session.savecarerror}"></div>
+		<th:block th:text="${#session.removeAttribute('savecarerror')}"></th:block>
+	</div>
+	<div class="form">
+		<form action="/SaveReturnInfo" id="regForm" method="post"
+			novalidate>
+			<caption>
+				<h1 id="signin" style="text-decoration: underline;">Return Car</h1>
+			</caption>
+			<table>
+				<tr>
+					<th><label for="no">Car No</label></th>
+				</tr>
+				<tr>
+					<td><input type="text" name="carno" id="no" required></td>
+				</tr>
+				<tr>
+					<th><label for="email">Customer Email</label></th>
+				</tr>
+				<tr>
+					<td><input type="text" name="useremail" id="email" required></td>
+				</tr>
+
+				<tr>
+					<td colspan="2" style="text-align: center;"><input
+						type="submit" name="submit" id="submit" value="Return Car"></td>
+				</tr>
+			</table>
+		</form>
+
+	</div>
+	<footer class="footer">
+		<div style="color: whitesmoke;">
+			<h4 class="heading">Site Map</h4>
+			<dl style="list-style-type: none;">
+				<dt>
+					<a href="#">Home</a>
+				</dt>
+				<dt>
+					<a href="">Admin</a>
+				</dt>
+				<dt>
+					<a href="">Seller</a>
+				</dt>
+			</dl>
+		</div>
+		<div>
+			<h4 class="heading">Our Address</h4>
+			<address>
+				Near Deokar Hospital, yashoda colony Lane Number 4<br>Karve Nagar <br>
+				Pune<br> <br> <i class="fa fa-phone fa-lg"></i> +91
+				5456 8976<br> <br> <i class="fa fa-fax fa-lg"></i> +91
+				7646 9853<br> <br> <i class="fa fa-envelope fa-lg"></i> <a
+					style="color: white;" href="mailto:carrental@car.net">support.carrental@car.net</a>
+			</address>
+		</div>
+		<div class="" style="margin: auto 0px 0px;">
+			<p>© Copyright 2021 Car Rental</p>
+		</div>
+		<div class="social" style="font-size: 30px;">
+			<h4 class="heading" style="font-size: large;">Follow Us On :</h4>
+			<a href="http://google.com/"><i class="fab fa-google"></i></a> <a
+				href="http://www.facebook.com/profile.php?id="><i
+				class="fab fa-facebook"></i></a> <a href="http://www.linkedin.com/in/"><i
+				class="fab fa-linkedin"></i></a> <a href="http://twitter.com/"><i
+				class="fab fa-twitter"></i></a> <a href="http://youtube.com/"><i
+				class="fab fa-youtube"></i></a> <a href="mailto:"><i
+				class="fa fa-envelope"></i></a>
+		</div>
+	</footer>
+</body>
+</html>

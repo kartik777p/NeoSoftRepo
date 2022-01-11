@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Admin Login Page</title>
+<link rel="icon" href="Images/logo.jpg">
+<link rel="stylesheet" href="css/formstyle.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<link rel="stylesheet" href="css/styles.css">
+<style>
+.back {
+	background-image: url("./Images/carback.jpg");
+}
+</style>
+</head>
+<body class="back">
+	<div style="background-color: black; width: 100%;">
+		<nav class="navbar1">
+			<div class="leftNav">
+				<a href="index.html" style="margin-left: 20px;"><img
+					src="Images/logo.jpg" style="border-radius: 50%;" width="50px"
+					height="50px" alt=""></a>
+			</div>
+
+			<div class="rightNav">
+				<ul class="nav1">
+					<li><a href="/"> Home</a></li>
+					<li><a href="/AdminLogin">Admin</a></li>
+					<li><a href="/SellerLogin">Seller</a></li>
+					<li><a href="/ContactUs">Contact Us</a></li>
+				</ul>
+
+			</div>
+		</nav>
+		<hr style="box-shadow: 2px 2px 10px black; background-color: white;" />
+
+	</div>
+	<div th:if="${session.credentials}">
+		<div style="text-align: center; color: red; font-weight:bolder; font-size: 25px;"
+			th:text="${session.credentials}"></div>
+		<th:block th:text="${#session.removeAttribute('credentials')}"></th:block>
+	</div>
+	<div th:if="${session.loginerror}">
+		<div style="text-align: center; color: red; font-weight:bolder; font-size: 25px;"
+			th:text="${session.loginerror}"></div>
+		<th:block th:text="${#session.removeAttribute('loginerror')}"></th:block>
+	</div>
+	<div class="form">
+		<form action="/AdminAuthenticate" method="POST">
+			<caption>
+				<h1 id="signin">Admin Login</h1>
+			</caption>
+			<table>
+
+				<tr>
+					<th><label for="email">Email</label></th>
+				</tr>
+				<tr>
+					<td><input type="email" name="email" id="email"></td>
+				</tr>
+
+				<th><label for="pw">Password</label></th>
+				</tr>
+				<tr>
+					<td><input type="password" name="password" id="pw"></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="showPassword" id="showPw"
+						style="width: 20px;"><label for="showPw">Show
+							Password</label></td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align: center;"><input
+						type="submit" name="submit" id="submit" value="Login"></td>
+				</tr>
+			</table>
+		</form>
+
+	</div>
+
+
+	<footer class="footer">
+		<div style="color: whitesmoke;">
+			<h4 class="heading">Site Map</h4>
+			<dl style="list-style-type: none;">
+				<dt>
+					<a href="#">Home</a>
+				</dt>
+				<dt>
+					<a href="">Admin</a>
+				</dt>
+				<dt>
+					<a href="">Seller</a>
+				</dt>
+			</dl>
+		</div>
+		<div>
+			<h4 class="heading">Our Address</h4>
+			<address>
+				Near Deokar Hospital, yashoda colony Lane Number 4<br>Karve Nagar <br>
+				Pune<br> <br> <i class="fa fa-phone fa-lg"></i> +91
+				5456 8976<br> <br> <i class="fa fa-fax fa-lg"></i> +91
+				7646 9853<br> <br> <i class="fa fa-envelope fa-lg"></i> <a
+					style="color: white;" href="mailto:carrental@car.net">support.carrental@car.net</a>
+			</address>
+		</div>
+		<div class="" style="margin: auto 0px 0px;">
+			<p>© Copyright 2021 Car Rental</p>
+		</div>
+		<div class="social" style="font-size: 30px;">
+			<h4 class="heading" style="font-size: large;">Follow Us On :</h4>
+			<a href="http://google.com/"><i class="fab fa-google"></i></a> <a
+				href="http://www.facebook.com/profile.php?id="><i
+				class="fab fa-facebook"></i></a> <a href="http://www.linkedin.com/in/"><i
+				class="fab fa-linkedin"></i></a> <a href="http://twitter.com/"><i
+				class="fab fa-twitter"></i></a> <a href="http://youtube.com/"><i
+				class="fab fa-youtube"></i></a> <a href="mailto:"><i
+				class="fa fa-envelope"></i></a>
+		</div>
+	</footer>
+
+	<script src="jQuery/jquery-3.6.0.js"></script>
+	<script src="jQuery/sign.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			$('#showPw').change(function() {
+				let chk = $("#showPw");
+				console.log(chk);
+				if (chk.prop('checked')) {
+					$('#pw').attr("type", "text");
+					$('#cpw').attr("type", "text");
+				} else {
+					$('#pw').attr("type", "password");
+					$('#cpw').attr("type", "password");
+				}
+			});
+		})
+	</script>
+
+</body>
+</html>
