@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin Login Form</title>
+<link rel="stylesheet" href="/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+<div class="nav-bar">
+    <div class="logo">
+        <a href="index.html"><img src="/images/logo.png" alt="Logo image" id="logo" width="200px" height="100px"></a>
+        <span><a href="index.html" style="text-decoration:none; font-size:30px; font-family: 'Poppins'">CarRentals</a></span>
+    </div>
+    <nav>
+        <ul id="menuItems">
+			<li><a th:href="@{/admin/dashboard}">Home</a></li>
+            <li><a th:href="@{/admin/addCarForm}">Add Car</a></li>
+            <li><a th:href="@{/admin/viewCars}">View Cars</a></li>
+            <li><a th:href="@{/admin/viewRentedCars}">View Rented Cars</a></li>
+	        <li><a th:href="@{/admin/viewCustomers}">View Customers Data</a></li>
+	        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    
+</div>
+
+<table class="table table-bordered table-striped">
+<!-- pending code -->
+<thead>
+		<tr>
+<tr><th>Car No</th><th>Customer Id</th><th>Customer Name</th><th>Customer Mobile</th><th>Rented Date</th><th>Return Status</th>
+		</tr>
+	</thead>
+	<tbody>
+				<tr th:each="car : ${carsToReturn}">
+			<td th:text="${car.carno}"></td>
+			<td th:text="${car.customerid}"></td>
+			<td th:text="${car.customername}"></td>
+			<td th:text="${car.customermobile}"></td>
+			<td th:text="${car.renteddate}"></td>
+			<td th:text="${car.returnstatus}"></td>
+			
+
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

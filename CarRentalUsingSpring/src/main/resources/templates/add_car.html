@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin Login Form</title>
+<link rel="stylesheet" href="/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="formPages">
+<div class="nav-bar">
+    <div class="logo">
+        <a href="index.html"><img src="/images/logo.png" alt="Logo image" id="logo" width="200px" height="100px"></a>
+        <span><a href="index.html" style="text-decoration:none; font-size:30px; font-family: 'Poppins'">CarRentals</a></span>
+    </div>
+    <nav>
+        <ul id="menuItems">
+            <li><a th:href="@{/admin/dashboard}">Home</a></li>
+            <li><a th:href="@{/admin/addCarForm}">Add Car</a></li>
+            <li><a th:href="@{/admin/viewCars}">View Cars</a></li>
+            <li><a th:href="@{/admin/viewRentedCars}">View Rented Cars</a></li>
+	        <li><a th:href="@{/admin/viewCustomers}">View Customers Data</a></li>
+	        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    
+</div>
+
+<div class="container-contact100">
+		<div class="wrap-contact100">
+		
+				<div th:if="${param.success}">
+			<div class="alert alert-info">Car Added Successfully</div>
+		</div>
+			<form action="#" th:action="@{/admin/saveCarDetails}" th:object="${car}" method = "POST" class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Add Car
+				</span>
+
+				<label class="label-input100" for="carno1">Car no *</label>
+				<div class="wrap-input100 rs1 validate-input">
+    				<input type="text" class="form-control"  th:field="*{carno}" name="carno" id="callno1" placeholder="Car no" required/>	
+					<span class="focus-input100"></span>
+				</div>
+
+				<label class="label-input100" for="name1">Company Name *</label>
+				<div class="wrap-input100 validate-input">
+					<input type="text" class="form-control" th:field="*{companyName}" name="name" id="name1" placeholder="Company Name" required/>
+					<span class="focus-input100"></span>
+				</div>
+
+				<label class="label-input100" for="model1">Model * </label>
+				<div class="wrap-input100">
+					<input type="text" class="form-control" th:field="*{model}" name="model" id="model" placeholder="Model" required/>
+					<span class="focus-input100"></span>
+				</div>
+
+				<label class="label-input100" for="year1">Year *</label>
+				<div class="wrap-input100">
+					<input type="number" class="form-control" th:field="*{year}" name="year" id="publisher1" placeholder="Year" required/>
+					<span class="focus-input100"></span>
+				</div>
+				
+				<label class="label-input100" for="year1">Rent Price *</label>
+				<div class="wrap-input100">
+					<input type="number" class="form-control" th:field="*{rentedprice}" name="rentprice" id="quantity1" placeholder="Rent Price" required/>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<input type="submit" class="btn btn-success" value="Add Car"/>
+
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

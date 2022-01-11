@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Index</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="bootstrap.min.css"/>
+
+<style>
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.footer{
+    background: #000;
+    color: #8a8a8a;
+    font-size: 16px;
+    padding: 60px 0 20px;
+}
+.footer p figcaption{
+    color: #8a8a8a;
+}
+.footer h3{
+    color: #fff;
+    margin-bottom: 20px;
+}
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+.footer-col-1{
+    flex: 1;
+    text-align: left;
+}
+.footer-col-2{
+    flex-basis: 35%;
+    text-align: center;
+}
+.footer-col-2 a{
+    color: #fff;
+}
+.footer-col-3, .footer-col-4{
+    flex-basis: 12%;
+    text-align: center;
+}
+.footer-col-4 img{
+    width: 20px;
+    height: 15px;
+    margin-left: 2px;
+    bottom: 0;
+}
+ul{
+    list-style-type: none;
+}
+.footer-col-4 li{
+    cursor: pointer;
+}
+.footer-col-3 li{
+    cursor: pointer;
+}
+.footer hr{
+    border: none;
+    background: #b5b5b5;
+    height: 1px;
+    margin: 20px 0;
+}
+.copyright{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+</style>
+</head>
+
+<body>
+<div class="nav-bar">
+    <div class="logo">
+        <span><a href="index.html"><img src="images/logo.png" alt="Logo image" id="logo" width="200px" height="100px"></a></span>
+        <span><a href="index.html" style="text-decoration:none; font-size:30px; font-family: 'Poppins' ">CarRentals</a></span>
+    </div>
+    <nav>
+        <ul id="menuItems">
+            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/custregistration}">Register Customer</a></li>
+        </ul>
+    </nav>
+    
+</div>
+
+<div class="container-fluid">
+
+
+
+
+<div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="images/undraw_remotely_2j6y.svg" alt="Image" width="100%" >
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+              <div th:if="${param.error}">
+				<div class="alert alert-danger">Invalid username or password.</div>
+				</div>
+			
+				<!-- logout message -->
+				<div th:if="${param.logout}">
+					<div class="alert alert-info">You have been logged out.</div>
+				</div>
+              <h3>Login</h3>
+              <p class="mb-4">Welcome. Login to experience Brand new Super Cars YourSelf!</p>
+            </div>
+            <form th:action="@{/login}" method="POST">
+            
+      			
+
+              <div class="form-group">
+                <label for="username">Email address</label>
+    			<input type="email" class="form-control" id="username" name="username" placeholder="Email" autofocus="autofocus" required/>
+
+              </div>
+              
+             <div class="form-group">
+			    <label for="password1">Password</label>
+   				<input type="password" class="form-control" id="password1" name="password" placeholder="Password"  autofocus="autofocus" required/>
+			  </div>
+
+              <input type="submit" name="login-submit" id="login-submit"
+									class="form-control btn btn-primary" value="Log In" />
+
+            </form>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  </center>
+</div>
+
+<!--  -->
+
+<footer class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <figure>
+                    <img src="images/logo.png" >
+                        <figcaption>Get the best deals in the market</figcaption>
+                    </figure>
+                </div> 
+                <div class="footer-col-2">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Call Center: <number>+91 92285 23672</number></li>
+                        <li>Email:&nbsp; <a href="mailto:web@example.com">mobilestore@mail.com</a></li>
+                        <li>Return Policy</li>
+                        <li>Brands</li>
+                    </ul>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Privacy Policy</li>
+                        <li>Terms</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebook <img src="images/facebook.svg"> </li>
+                        <li>Twitter <img src="images/twitter.svg"></li>
+                        <li>Instagram <img src="images/instagram.svg"></li>
+                        <li>YouTube <img src="images/youtube.svg"></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright &#169; 2021 Car Rental Services</p>
+        </div>
+    </footer>
+
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script>
+
+  </script>
+  
+</body>
+</html>

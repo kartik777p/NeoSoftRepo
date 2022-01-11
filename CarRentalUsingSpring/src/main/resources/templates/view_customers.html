@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Customers</title>
+<link rel="stylesheet" href="/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+<div class="nav-bar">
+    <div class="logo">
+        <a href="index.html"><img src="/images/logo.png" alt="Logo image" id="logo" width="200px" height="100px"></a>
+        <span><a href="index.html" style="text-decoration:none; font-size:30px; font-family: 'Poppins'">CarRentals</a></span>
+    </div>
+    <nav>
+        <ul id="menuItems">
+           <li><a th:href="@{/admin/dashboard}">Home</a></li>
+            <li><a th:href="@{/admin/addCarForm}">Add Car</a></li>
+            <li><a th:href="@{/admin/viewCars}">View Cars</a></li>
+            <li><a th:href="@{/admin/viewRentedCars}">View Rented Cars</a></li>
+	        <li><a th:href="@{/admin/viewCustomers}">View Customers Data</a></li>
+	        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    
+</div>
+
+	<div th:if="${param.success}">
+		<div class="alert alert-info">Successfully Done</div>
+	</div>
+<table class="table table-bordered table-striped">
+<!-- pending code -->
+<thead>
+		<tr><th>Id</th><th>Name</th><th>Email</th><th>Password</th><th>Mobile</th><th>Edit Data</th><th>Delete</th></tr>
+	</thead>
+	<tbody>
+		<tr th:each="customer : ${customersList}">
+			<td th:text="${customer.id}"></td>
+			<td th:text="${customer.name}"></td>
+			<td th:text="${customer.email}"></td>
+			<td th:text="${customer.password}"></td>
+			<td th:text="${customer.mobile}"></td>
+			
+			<td> <a th:href="@{/admin/showFormForUpdate/{id}(id=${customer.id})}" class="btn btn-primary">Edit</a></td>
+			<td> <a th:href="@{/admin/deleteCustomerRecord/{id}(id=${customer.id})}" class="btn btn-danger">Delete</a></td>
+
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

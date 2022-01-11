@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Form</title>
+<link rel="stylesheet" href="/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="formPages">
+<div class="nav-bar">
+    <div class="logo">
+        <a href="index.html"><img src="/images/logo.png" alt="Logo image" id="logo" width="200px" height="100px"></a>
+        <span><a href="index.html" style="text-decoration:none; font-size:30px; font-family: 'Poppins'">CarRentals</a></span>
+    </div>
+    <nav>
+        <ul id="menuItems">
+            <li><a th:href="@{/admin/dashboard}">Home</a></li>
+            <li><a th:href="@{/admin/addCarForm}">Add Car</a></li>
+            <li><a th:href="@{/admin/viewCars}">View Cars</a></li>
+            <li><a th:href="@{/admin/viewRentedCars}">View Rented Cars</a></li>
+	        <li><a th:href="@{/admin/viewCustomers}">View Customers Data</a></li>
+	        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    
+</div>
+
+<div class="container-contact100">
+		<div class="wrap-contact100">
+		
+				<div th:if="${param.success}">
+			<div class="alert alert-info">Updated Successfully</div>
+		</div>
+			<form action="#" th:action="@{/admin/updateCustomerData}" th:object="${customer}" method = "POST" class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Update
+				</span>
+
+				<label for='name1' class='label-input100'>Name</label>
+					 <div class='wrap-input100 rs1 validate-input'>
+					 <input type='hidden' name="id" th:field="*{id}"> 
+					
+					 <input type='text' class='form-control'  th:field="*{name}" name='name' id='name1' placeholder='Name' required/>
+					 <span class='focus-input100'></span> 
+					 </div> 
+					
+					 <label for='email1' class='label-input100'>Email address</label>
+					 <div class='wrap-input100'>
+					 <input type='email' class='form-control' th:field="*{email}" name='email' id='email1' placeholder='Email' required/>
+					 </div> 
+					 
+					
+					 <label for='mobile1' class='label-input100'>Mobile Number</label>
+					 <div class='wrap-input100'>
+					 <input type='number' class='form-control' th:field="*{mobile}" name='mobile' id='mobile1' placeholder='Mobile' required/>
+					 </div>
+
+
+				<div class="container-contact100-form-btn">
+					<input type="submit" class="btn btn-success" value="Update Data"/>
+
+				</div>
+				
+				<a th:href = "@{/admin/viewCustomers}"> Back to Customers List</a>
+			</form>
+		</div>
+	</div>
+
+
+
+</body>
+</html>
